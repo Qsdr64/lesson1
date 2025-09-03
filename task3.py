@@ -1,14 +1,12 @@
-from time import sleep
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service as ChromeService
-from webdriver_manager.chrome import ChromeDriverManager
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
-
-driver = webdriver.Chrome(service=ChromeService(ChromeDriverManager().install()))
+from time import sleep
+driver = webdriver.Firefox()
 driver.get("http://the-internet.herokuapp.com/inputs")
-search = driver.find_element(By.TAG_NAME, "input")
-search.send_keys("Sky")
-search.clear()
-search.send_keys("Pro")
-driver.quit
+input_field = driver.find_element(By.CSS_SELECTOR, "input[type='number']")
+input_field.send_keys("Sky")
+sleep(5)
+input_field.clear()
+input_field.send_keys("Pro")
+driver.quit()
