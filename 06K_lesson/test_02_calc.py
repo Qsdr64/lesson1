@@ -18,5 +18,9 @@ driver.find_element(By.XPATH,f"//span[text()='{8}']").click()
 driver.find_element(By.XPATH,f"//span[text()='=']").click()
 
 wait = WebDriverWait(driver, 45)
-result_locator = (By.CSS_SELECTOR, "#screen")
-assert wait.until(EC.text_to_be_present_in_element(result_locator, "15"))
+wait.until(
+    EC.text_to_be_present_in_element((By.CSS_SELECTOR, "div.screen"), "15")
+    )
+result_locator = driver.find_element(By.CSS_SELECTOR, "div.screen")
+assert result_locator.text == "15"
+driver.quit()
