@@ -14,8 +14,8 @@ user.send_keys("standard_user")
 password = driver.find_element(By.CSS_SELECTOR, ("#password"))
 password.send_keys("secret_sauce")
 driver.find_element(By.CSS_SELECTOR, ("#login-button")).click()
-Sale = WebDriverWait (driver, 3)
-Sale.until(EC.url_to_be('https://www.saucedemo.com/inventory.html'))
+sale = WebDriverWait (driver, 3)
+sale.until(EC.url_to_be('https://www.saucedemo.com/inventory.html'))
 driver.find_element(
     By.CSS_SELECTOR, ("#add-to-cart-sauce-labs-backpack")).click()
 
@@ -39,3 +39,4 @@ prise.until(EC.url_to_be("https://www.saucedemo.com/checkout-step-two.html"))
 total = driver.find_element(By.CLASS_NAME,("summary_total_label"))
 assert total.text == "Total: $58.29"
 driver.quit()
+
